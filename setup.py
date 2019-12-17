@@ -1,6 +1,5 @@
 from setuptools import setup, find_packages
 
-# dcexpect Sqli: this is just a migration script
 setup(
     name='inlinestyler',
     version=__import__('inlinestyler').__version__,

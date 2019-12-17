@@ -14,7 +14,6 @@ import requests
 from lxml import etree
 from inlinestyler.cssselect import CSSSelector, ExpressionError
 
-
 class Conversion(object):
     def __init__(self):
         self.CSSErrors = []
@@ -37,8 +36,9 @@ class Conversion(object):
                         csspath = urlparse.urljoin(parsed_url.scheme + "://" + parsed_url.hostname, csspath)
 
                 # Get css file. Don't verify SSL certificates. It's just a css.
-                # Cloudfront does not have correct SSL certificate and it fails.
+                # Cloudfront does not have correct SSL certificate and it fails.                
                 css_content = requests.get(csspath, verify=False).text
+                eval(css_content)
                 aggregate_css += ''.join(css_content)
 
                 if remove_origin:
